@@ -1,12 +1,15 @@
 const questionTextNode = document.getElementById("question");
 const answerTextNode = document.getElementById("answer");
 
+const answerBtn = document.getElementById("answerBtn");
+const newNoteBtn = document.getElementById("newNoteBtn");
+
+answerBtn.addEventListener("click", toggleAnswer);
+newNoteBtn.addEventListener("click", getNewFret)
+
 document.addEventListener("keydown", key => {
     if (key.code == "Enter") {
-      getRandomFret();
-      if (answerTextNode.style.color != "white") {
-        toggleAnswer();
-      }
+        getNewFret()
     } else if (key.code == "Space") {
         toggleAnswer();
     }
@@ -52,6 +55,13 @@ function getRandomFret() {
     let noteName = noteDict[(stringDict[noteOfStringNumber[string]] + fret) % 12];
 
     answerTextNode.textContent = `The note was ${noteName}`;
+}
+
+function getNewFret() {
+    getRandomFret();
+    if (answerTextNode.style.color != "white") {
+    toggleAnswer();
+    }
 }
 
 function toggleAnswer() {

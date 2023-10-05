@@ -20,3 +20,8 @@
 #instructions {
     font-size: 32px;
 }
+
+button {
+    width: 200px;
+    height: 150px;
+}
